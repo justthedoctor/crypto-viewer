@@ -6,9 +6,12 @@
           // set the initial vars utilizing node_modules
   var path = require('path');
   var request = require('request');
+  var bodyParser = require('body-parser');
+  var urlencodedParser = bodyParser.urlencoded({ extended: true });
   var express = require('express');
   var app = express();
-  cvaVersion = "0.0.1";
+  cvaVersion = "0.0.2";
+
 
           // Set the Pug Engine and Pug Source DIR
     app.set("view engine", "pug");
@@ -31,8 +34,14 @@
       })
 
           // Setup the function of replying to http://httpHost:httpPort/
-      app.get("/", (req, res, cvaVersion) => {
+      app.use('/public', express.static('public'))
+
+      app.get("/", (req, res) => {
           res.render("index");
+      });
+
+      app.post("/opreturn", urlencodedParser, (req, res) => {
+        res.render("opreturn");
       });
 
           // Setup the function of replying to http://httpHost:httpPort/

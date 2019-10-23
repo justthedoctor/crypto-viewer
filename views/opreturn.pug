@@ -11,10 +11,4 @@ html
           each item in summaryCoinName
             option(value= item)= item
 
-
-        form(action="/opreturn" method="post" name="op_return")
-          center Address:
-            input(type="text" name="aid")
-            input(type="submit" value="submit")
-
         center Version: #{cvaVersion}
