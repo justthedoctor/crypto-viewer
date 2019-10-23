@@ -1,4 +1,7 @@
 html
   body
     h1 Hello World!
-    p #{object1}
+    select
+      each item in summaryCoinName
+        option(value= item)= item
+    center Version: #{cvaVersion}
