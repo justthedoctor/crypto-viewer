@@ -1,3 +1,4 @@
+doctype html
 html
   head
     style
@@ -11,4 +12,6 @@ html
           each item in summaryCoinName
             option(value= item)= item
 
-        center Version: #{cvaVersion}
+      .contentDiv
+        #{addressStringify}
+          center Version: #{cvaVersion}
